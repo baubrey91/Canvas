@@ -121,23 +121,10 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
     }
     
     func didPan(panGestureRecognizer: UIPanGestureRecognizer) {
-//        
-//        let translation = panGestureRecognizer.translation(in: view)
-//        if panGestureRecognizer.state == UIGestureRecognizerState.began{
-//            newlyCreatedFace = panGestureRecognizer.view as! UIImageView
-//            faceOriginalCenter = newlyCreatedFace.center
-//            
-//            
-//        }else if panGestureRecognizer.state == UIGestureRecognizerState.changed{
-//            newlyCreatedFace.center = CGPoint(x: faceOriginalCenter.x + translation.x, y: faceOriginalCenter.y + translation.y)
-//        }else if panGestureRecognizer.state == UIGestureRecognizerState.ended{
-//            
-//        }
 
         let translation = panGestureRecognizer.translation(in: view)
         
         if panGestureRecognizer.state == .changed {
-            
             panGestureRecognizer.view?.transform = CGAffineTransform(scaleX: (translation.x/100) + 1, y: (translation.y/100) + 1)
         }
         
@@ -152,18 +139,6 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
         newlyCreatedFace = pinchGestureRecognizer.view as! UIImageView
         newlyCreatedFace.transform = newlyCreatedFace.transform.scaledBy(x: scale, y: scale)
         pinchGestureRecognizer.scale = 1
-        
-        /*let scale = pinchGestureRecognizer.scale
-        
-        if pinchGestureRecognizer.state == .changed {
-            
-            pinchGestureRecognizer.view?.transform = CGAffineTransform(scaleX: scale , y: scale)
-        }
-        
-        if pinchGestureRecognizer.state == .ended {
-            
-           // pinchGestureRecognizer.view?.transform = CGAffineTransform(scaleX: scale , y: scale)
-        }*/
     }
     
     func didRotate(rotateGestureRecognizer: UIRotationGestureRecognizer) {
@@ -171,15 +146,6 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
         newlyCreatedFace = rotateGestureRecognizer.view as! UIImageView
         newlyCreatedFace.transform = newlyCreatedFace.transform.rotated(by: rotation)
         rotateGestureRecognizer.rotation = 0
-        /*let rotation = rotateGestureRecognizer.rotation
-        
-        if rotateGestureRecognizer.state == .changed {
-            rotateGestureRecognizer.view?.transform = CGAffineTransform(rotationAngle: CGFloat((45 * Double.pi) / 180) * rotation)
-        }
-        
-        if rotateGestureRecognizer.state == .ended {
-           // rotateGestureRecognizer.view?.transform = CGAffineTransform(rotationAngle: CGFloat((45 * Double.pi) / 180) * rotation)
-        }*/
     }
     
     func didDoubleTap(tapGestureRecognizer: UITapGestureRecognizer) {
